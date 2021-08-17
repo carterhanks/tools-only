@@ -33,3 +33,4 @@ Dating app where you can find, date, and marry a mechanic. Never again worry abo
 - Users can add dates/plans to their Google Calendars from the app
 - App will suggest restaurants/date ideas based on location from within the app
 - Users can delete their accounts
+- Users can rate their date (lol)
