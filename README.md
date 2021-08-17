@@ -22,6 +22,7 @@ Dating app where you can find, date, and marry a mechanic. Never again worry abo
 
 - Users can create an account
 - Users can log in/out of their account
+- Users can edit their profile
 - User can swipe left (for no) or right (for yes) in hopes of matching with someone
 - Users can chat with their matches
 - Users can see a list of their matches
