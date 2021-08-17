@@ -14,9 +14,9 @@ Dating app where you can find, date, and marry a mechanic. Never again worry abo
   - Name, Age, Location
   - Bio
   - Matches
-- App will have the ability to swipe left or right on other users' profiles on the matching screen
-- App will have a chat/messaging feature
-- If users match then they become 'friends' so-to-speak, and can then message back and forth
+- App will have the ability to swipe left or right on other users' profiles on the matching screen (buttons will be added as an alternate functionality in case swipe doesn't work)
+- App will have a chat/messaging feature (likely using sockets)
+- If users match then they become 'friends' (so-to-speak), and can then message back and forth
 
 ## User Experience
 
@@ -35,3 +35,4 @@ Dating app where you can find, date, and marry a mechanic. Never again worry abo
 - App will suggest restaurants/date ideas based on location from within the app
 - Users can delete their accounts
 - Users can rate their date (lol)
+- Include a test (or even a simple checkbox) that would change your status to being a "Tool" (aka mechanic) - that way people can distinguish between who is a "Tool" (mechanic) and who isn't.
