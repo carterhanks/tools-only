@@ -13,3 +13,7 @@
 .header__icon {
 	padding: 20px;
 }
+
+.header__icon:hover {
+	color: black;
+}
