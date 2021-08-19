@@ -8,15 +8,14 @@ import "./App.css";
 function App() {
 	return (
 		<div className="App">
-			<Header />
 			<Router>
 				<Switch>
-					<Route path="/chats">
+					<Route path="/chat">
+						<Header backButton="/" />
 						<h1>I am the chat page</h1>
 					</Route>
 					<Route path="/">
-						{" "}
-						{/* Default always goes at the bottom - renders last */}
+						<Header /> {/* Default always goes at the bottom - renders last */}
 						<ToolCards />
 						<SwipeButtons />
 					</Route>
