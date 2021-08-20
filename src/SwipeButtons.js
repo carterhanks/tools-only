@@ -9,10 +9,10 @@ function SwipeButtons() {
 	return (
 		<div className="swipeButtons">
 			<IconButton className="swipeButtons__x">
-				<HighlightOffIcon fontsize="large" />
+				<HighlightOffIcon fontSize="large" />
 			</IconButton>
 			<IconButton className="swipeButtons__heart">
-				<FavoriteBorderIcon fontsize="large" />
+				<FavoriteBorderIcon fontSize="large" />
 			</IconButton>
 		</div>
 	);

@@ -2,6 +2,7 @@ import React from "react";
 import Header from "./Header";
 import ToolCards from "./ToolCards";
 import SwipeButtons from "./SwipeButtons";
+import Chats from "./Chats";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 
@@ -12,10 +13,11 @@ function App() {
 				<Switch>
 					<Route path="/chat">
 						<Header backButton="/" />
-						<h1>I am the chat page</h1>
+						<Chats />
 					</Route>
 					<Route path="/">
-						<Header /> {/* Default always goes at the bottom - renders last */}
+						{/* Default route/webpage always goes at the bottom - renders last so that it doesn't stop other routes from rendering/being accessable - might be fixed as of more recent patch */}
+						<Header />
 						<ToolCards />
 						<SwipeButtons />
 					</Route>
