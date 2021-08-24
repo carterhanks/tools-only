@@ -22,6 +22,8 @@ function ChatScreen() {
 		}
 	]);
 
+	// TODO: Get requests to grab the name, image, and message form DB
+
 	const handleSend = (e) => {
 		e.preventDefault();
 

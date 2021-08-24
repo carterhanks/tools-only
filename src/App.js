@@ -38,7 +38,7 @@ export default App;
 	/* Header */
 }
 {
-	/* Tinder Cards */
+	/* Tool Cards */
 }
 {
 	/* Buttons Below Tinder Cards */
