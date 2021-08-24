@@ -3,6 +3,8 @@ import database from "./firebase";
 import TinderCard from "react-tinder-card";
 import "./ToolCards.css";
 
+//TODO - ToolCards need to have functionality on swipe. Swipe left and it deletes user from potential matches, swipe right and it posts it to a "likes" array. Buttons also need to mimic that functionality.
+
 function ToolCards() {
 	const [people, setPeople] = useState([]); // This is your component's State and is the same as "const people = [];"
 

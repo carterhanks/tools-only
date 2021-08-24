@@ -1,6 +1,14 @@
+//This component is for when you actually click on a specific person's chat. Shows your messages between you and them (individual match).
+
 import React, { useState } from "react";
 import "./ChatScreen.css";
 import Avatar from "@material-ui/core/Avatar";
+
+//TODO - Get requests to grab the userID(?) name, image, and message from DB
+
+//TODO - Post requests to send the message (this will likely include name, image, and message for other user to see?)
+
+//TODO - Future functionality might include a Delete request if users wish to delete messages.
 
 function ChatScreen() {
 	const [input, setInput] = useState("");
@@ -21,8 +29,6 @@ function ChatScreen() {
 			message: "Hi! How are you Mia?"
 		}
 	]);
-
-	// TODO: Get requests to grab the name, image, and message form DB
 
 	const handleSend = (e) => {
 		e.preventDefault();

@@ -1,7 +1,11 @@
+//This page is being used to style/organize the information that is being rendered on Chats.js (all chats at /chat endpoint).
+
 import React from "react";
 import { Link } from "react-router-dom";
 import Avatar from "@material-ui/core/Avatar";
 import "./Chat.css";
+
+//TODO - This component will need GET requests to grab all of the chats you have with people whom you have matched with. This will include user name, photo, message, and the timestamp for the message.
 
 function Chat({ name, message, profilePic, timestamp }) {
 	return (

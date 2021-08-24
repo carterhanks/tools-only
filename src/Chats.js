@@ -1,3 +1,5 @@
+//This page simply holds/renders the chat info that is showing on the "/chat" endpoint.
+
 import React from "react";
 import "./Chats.css";
 import Chat from "./Chat";

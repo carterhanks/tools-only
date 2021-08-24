@@ -4,6 +4,7 @@ import ToolCards from "./ToolCards";
 import SwipeButtons from "./SwipeButtons";
 import Chats from "./Chats";
 import ChatScreen from "./ChatScreen";
+import Profile from "./Profile";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 
@@ -12,6 +13,10 @@ function App() {
 		<div className="App">
 			<Router>
 				<Switch>
+					<Route path="/profile">
+						<Header backButton="/" />
+						<Profile />
+					</Route>
 					<Route path="/chat/:person">
 						<Header backButton="/chat" />
 						<ChatScreen />
@@ -33,23 +38,3 @@ function App() {
 }
 
 export default App;
-
-{
-	/* Header */
-}
-{
-	/* Tool Cards */
-}
-{
-	/* Buttons Below Tinder Cards */
-}
-
-{
-	/* Chats Screen */
-}
-{
-	/* Individual Chat Screens */
-}
-{
-	/* Footer */
-}
