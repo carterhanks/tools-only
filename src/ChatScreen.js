@@ -8,7 +8,7 @@ import Avatar from "@material-ui/core/Avatar";
 
 //TODO - Post requests to send the message (this will likely include name, image, and message for other user to see?)
 
-//TODO - Future functionality might include a Delete request if users wish to delete messages.
+//TODO - Future functionality - include a Delete request if users wish to delete messages.
 
 function ChatScreen() {
 	const [input, setInput] = useState("");

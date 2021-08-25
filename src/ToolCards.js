@@ -16,7 +16,7 @@ function ToolCards() {
 			.collection("people")
 			.onSnapshot((snapshot) =>
 				setPeople(snapshot.docs.map((doc) => doc.data()))
-			); // Gets access to that entire collection on firebase database, and anytime it changes, take a 'picture' of it, sent me the new data, and set it inside of the people array.
+			); // Gets access to that entire collection on firebase database, and anytime it changes: take a 'picture' of it, sent me the new data, and set it inside of the people array.
 
 		return () => {
 			// This is the cleanup
@@ -31,8 +31,17 @@ function ToolCards() {
 	//GOOD (Push to an array in React)
 	//  setPeople([...people, 'carter', 'tucker']);
 
+	const swiped = (direction, nameToDelete) => {
+		console.log("removing: " + nameToDelete);
+		// setLastDirection(direction);
+	};
+
+	const outOfFrame = (name) => {
+		console.log(name + " left the screen!");
+	};
+
 	return (
-		<div>
+		<div className="toolCards">
 			<div className="toolCards__cardContainer">
 				{people.map((person) => (
 					<TinderCard className="swipe" key={person.name}>
@@ -40,6 +49,8 @@ function ToolCards() {
 							style={{ backgroundImage: `url(${person.url})` }}
 							className="card"
 							preventSwipe={["up", "down"]}
+							onSwipe={(dir) => swiped(dir, person.name)}
+							onCardLeftScreen={() => outOfFrame(person.name)}
 						>
 							<h3>{person.name}</h3>
 						</div>
