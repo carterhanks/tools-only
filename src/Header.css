@@ -3,6 +3,7 @@
 	justify-content: space-between;
 	align-items: center;
 	border-bottom: 1px solid silver;
+	z-index: 100;
 }
 
 .header__logo {
@@ -11,7 +12,7 @@
 }
 
 .header__icon {
-	padding: 20px;
+	padding: 1.5rem;
 }
 
 .header__icon:hover {

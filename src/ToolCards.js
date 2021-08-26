@@ -44,13 +44,16 @@ function ToolCards() {
 		<div className="toolCards">
 			<div className="toolCards__cardContainer">
 				{people.map((person) => (
-					<TinderCard className="swipe" key={person.name}>
+					<TinderCard
+						className="swipe"
+						key={person.name}
+						preventSwipe={["up", "down"]}
+						onSwipe={(dir) => swiped(dir, person.name)}
+						onCardLeftScreen={() => outOfFrame(person.name)}
+					>
 						<div
 							style={{ backgroundImage: `url(${person.url})` }}
 							className="card"
-							preventSwipe={["up", "down"]}
-							onSwipe={(dir) => swiped(dir, person.name)}
-							onCardLeftScreen={() => outOfFrame(person.name)}
 						>
 							<h3>{person.name}</h3>
 						</div>
