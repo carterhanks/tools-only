@@ -1,4 +1,9 @@
 //This is where the server will be set up including get/post/put/delete requests
+const express = require("express");
+const massive = require("massive");
+require("dotenv").config();
+
+const app = express();
 
 //TODO - handle GET request for name, photo, and message on chatscreen (individual match)
 
@@ -13,3 +18,18 @@
 //TODO - handle POST request for when you swipe right/click heart on ToolCards
 
 //TODO - handle DELETE request for when you swipe left/click X on ToolCards
+
+const { SERVER_PORT, CONNECTION_STRING } = process.env;
+
+massive({
+	connectionString: CONNECTION_STRING,
+	ssl: {
+		rejectUnauthorized: false
+	}
+}).then((dbInstance) => app.set("db", dbInstance));
+
+app.use(express.json());
+
+app.listen(SERVER_PORT, () => {
+	console.log(`Server Slappin' on port ${SERVER_PORT}!`);
+});
