@@ -1,6 +1,7 @@
 //This is where the server will be set up including get/post/put/delete requests
 const express = require("express");
 const massive = require("massive");
+const controller = require("./controller");
 require("dotenv").config();
 
 const app = express();
