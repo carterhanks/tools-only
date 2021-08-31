@@ -1,7 +1,7 @@
 //This is where the server will be set up including get/post/put/delete requests
 const express = require("express");
 const massive = require("massive");
-const controller = require("./controller");
+const authController = require("./authController");
 require("dotenv").config();
 
 const app = express();
@@ -20,7 +20,16 @@ const app = express();
 
 //TODO - handle DELETE request for when you swipe left/click X on ToolCards
 
+//Auth endpoints - deals with users table
+
+//Matches endpoints
+//*For adding a match ID, we need to ask if one already exists
+
+//Messages endpoints
+
 const { SERVER_PORT, CONNECTION_STRING } = process.env;
+
+app.post("/auth/login", authController.signIn);
 
 massive({
 	connectionString: CONNECTION_STRING,
