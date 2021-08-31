@@ -6,26 +6,22 @@ require("dotenv").config();
 
 const app = express();
 
-//TODO - handle GET request for name, photo, and message on chatscreen (individual match)
-
-//TODO - handle POST request to send your new message to individual match on chatscreen
-
-//TODO - handle GET request for name, photo, and message on Chat (all matches at /chat endpoint)
-
-//TODO - handle GET request with profile information (userid, name, bio, profile image, location) for /profile endpoint
-
-//TODO - handle PUT request for when users update their profile information
-
-//TODO - handle POST request for when you swipe right/click heart on ToolCards
-
-//TODO - handle DELETE request for when you swipe left/click X on ToolCards
-
 //Auth endpoints - deals with users table
+//TODO - handle GET request with profile information (userid, name, bio, profile image, location) for /profile endpoint
+//TODO - handle PUT request for when users update their profile information
+//TODO - handle DELETE request for when users logout
+//TODO - handle POST request for login
+//TODO - (if time) POST request for registration
 
 //Matches endpoints
 //*For adding a match ID, we need to ask if one already exists
+//TODO - handle POST request for when you swipe right/click heart on ToolCards
+//TODO - handle DELETE request for when you swipe left/click X on ToolCards
 
-//Messages endpoints
+//Messages endpoints (future?)
+//TODO - handle GET request for name, photo, and message on chatscreen (individual match)
+//TODO - handle POST request to send your new message to individual match on chatscreen
+//TODO - handle GET request for name, photo, and message on Chat (all matches at /chat endpoint)
 
 const { SERVER_PORT, CONNECTION_STRING } = process.env;
 
