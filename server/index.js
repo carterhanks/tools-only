@@ -1,17 +1,40 @@
 //This is where the server will be set up including get/post/put/delete requests
+require("dotenv").config();
 const express = require("express");
 const massive = require("massive");
-const authController = require("./authController");
-require("dotenv").config();
+const session = require("express-session");
+const authController = require("./controllers/authController");
+const matchesController = require("./controllers/matchesContoller");
+const messagesController = require("./controllers/messagesController");
+const { SESSION_SECRET, CONNECTION_STRING, SERVER_PORT } = process.env;
 
 const app = express();
 
+//Middleware
+app.use(express.json());
+app.use(
+	session({
+		resave: false,
+		saveUninitialized: true,
+		cookie: { maxAge: 1000 * 60 * 60 * 24 },
+		secret: SESSION_SECRET
+	})
+);
+
 //Auth endpoints - deals with users table
-//TODO - handle GET request with profile information (userid, name, bio, profile image, location) for /profile endpoint
+
+//TODO - Handle POST request for registering new user
+app.post("/auth/register", authController.register);
+
+//Handle POST request for login
+app.post("/auth/login", authController.signIn);
+
+//TODO (is this needed?) - handle GET request with profile information (userid, name, bio, profile image, location) for /profile endpoint
+// app.get("/auth/user/:user_id", authController.getAllUsers);
+
 //TODO - handle PUT request for when users update their profile information
+
 //TODO - handle DELETE request for when users logout
-//TODO - handle POST request for login
-//TODO - (if time) POST request for registration
 
 //Matches endpoints
 //*For adding a match ID, we need to ask if one already exists
@@ -23,8 +46,6 @@ const app = express();
 //TODO - handle POST request to send your new message to individual match on chatscreen
 //TODO - handle GET request for name, photo, and message on Chat (all matches at /chat endpoint)
 
-const { SERVER_PORT, CONNECTION_STRING } = process.env;
-
 app.post("/auth/login", authController.signIn);
 
 massive({
@@ -34,8 +55,6 @@ massive({
 	}
 }).then((dbInstance) => app.set("db", dbInstance));
 
-app.use(express.json());
-
 app.listen(SERVER_PORT, () => {
-	console.log(`Server Slappin' on port ${SERVER_PORT}!`);
+	console.log(`Server Slappin on port ${SERVER_PORT}!`);
 });
