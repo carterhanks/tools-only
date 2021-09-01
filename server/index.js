@@ -4,7 +4,7 @@ const express = require("express");
 const massive = require("massive");
 const session = require("express-session");
 const authController = require("./controllers/authController");
-const matchesController = require("./controllers/matchesContoller");
+const matchesController = require("./controllers/matchesController");
 const messagesController = require("./controllers/messagesController");
 const { SESSION_SECRET, CONNECTION_STRING, SERVER_PORT } = process.env;
 
@@ -23,30 +23,33 @@ app.use(
 
 //Auth endpoints - deals with users table
 
-//TODO - Handle POST request for registering new user
+//Handle POST request for registering new user
 app.post("/auth/register", authController.register);
 
 //Handle POST request for login
 app.post("/auth/login", authController.signIn);
 
-//TODO (is this needed?) - handle GET request with profile information (userid, name, bio, profile image, location) for /profile endpoint
+//Handle DELETE request for when users logout
+app.delete("/auth/logout", authController.signOut);
+
+//TODO(future) - handle PUT request for when users update their profile information
+
+//TODO(is this needed?) - handle GET request with profile information (userid, name, bio, profile image, location) for /profile endpoint
 // app.get("/auth/user/:user_id", authController.getAllUsers);
-
-//TODO - handle PUT request for when users update their profile information
-
-//TODO - handle DELETE request for when users logout
 
 //Matches endpoints
 //*For adding a match ID, we need to ask if one already exists
-//TODO - handle POST request for when you swipe right/click heart on ToolCards
-//TODO - handle DELETE request for when you swipe left/click X on ToolCards
+//TODO - Handle GET request for any potential matches
+
+//TODO - handle POST request for when I swipe right/click heart on ToolCards
+app.post("/matches/:user_id", matchesController); //add . after matchesController
+
+//TODO - handle DELETE request for when I swipe left/click X on ToolCards
 
 //Messages endpoints (future?)
 //TODO - handle GET request for name, photo, and message on chatscreen (individual match)
 //TODO - handle POST request to send your new message to individual match on chatscreen
 //TODO - handle GET request for name, photo, and message on Chat (all matches at /chat endpoint)
-
-app.post("/auth/login", authController.signIn);
 
 massive({
 	connectionString: CONNECTION_STRING,

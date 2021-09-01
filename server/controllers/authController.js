@@ -1,23 +1,33 @@
 module.exports = {
-	//Reister
+	//Register
 	register: async (req, res) => {
 		const db = req.app.get("db");
-		const { email, password, name, bio, profilePhoto, location } = req.body;
+		const { email, password, name, bio, profile_photo_url, location } =
+			req.body;
 
 		const [checkUser] = await db.signIn.check_user_exists(email);
+
+		if (checkUser) {
+			return res.status(400).send("User Already Exists");
+		}
+
 		const [addUser] = await db.register.add_user(
 			email,
 			password,
 			name,
 			bio,
-			profilePhoto,
+			profile_photo_url,
 			location
 		);
 
-		if (checkUser) {
-			return res.status(400).send("User Already Exists");
+		if (addUser) {
+			req.session.user = addUser;
+			return res.status(200).send(req.session.user);
+		} else {
+			return res.status(400).send("Registration Failed");
 		}
 	},
+
 	//Sign In
 	signIn: async (req, res) => {
 		const db = req.app.get("db");
@@ -39,6 +49,6 @@ module.exports = {
 	//Sign Out
 	signOut: async (req, res) => {
 		req.session.destroy();
-		req.status(200).send("OK");
+		res.status(200).send("OK");
 	}
 };
