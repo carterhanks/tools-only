@@ -21,7 +21,7 @@ app.use(
 	})
 );
 
-//Auth endpoints - deals with users table
+//AUTH ENDPOINTS - deals with users table
 
 //Handle POST request for registering new user
 app.post("/auth/register", authController.register);
@@ -37,16 +37,23 @@ app.delete("/auth/logout", authController.signOut);
 //TODO(is this needed?) - handle GET request with profile information (userid, name, bio, profile image, location) for /profile endpoint
 // app.get("/auth/user/:user_id", authController.getAllUsers);
 
-//Matches endpoints
+//MATCHES ENPOINTS
 //*For adding a match ID, we need to ask if one already exists
-//TODO - Handle GET request for any potential matches
 
-//TODO - handle POST request for when I swipe right/click heart on ToolCards
-app.post("/matches/:user_id", matchesController); //add . after matchesController
+//TODO - Handle POST request for when two users match
+app.post("/matches/matched", matchesController.matched); //liked_id and liker_id match
 
-//TODO - handle DELETE request for when I swipe left/click X on ToolCards
+// //TODO - Handle GET request for any potential matches
+// app.get("/matches/potentials", matchesController.potentials);
 
-//Messages endpoints (future?)
+//TODO - handle POST request for when I and others swipe right/click heart on ToolCards
+app.post("/matches/:user_id", matchesController.liked_id);
+app.get("/matches/liker_id", matchesController.liker_id);
+
+//TODO - handle DELETE request for when I or others swipe left/click X on ToolCards
+app.delete("/matches/not_liked", matchesController.notLiked);
+
+//MESSAGES ENPOINTS (future?)
 //TODO - handle GET request for name, photo, and message on chatscreen (individual match)
 //TODO - handle POST request to send your new message to individual match on chatscreen
 //TODO - handle GET request for name, photo, and message on Chat (all matches at /chat endpoint)
