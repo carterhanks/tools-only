@@ -1,1 +1,1 @@
-select * from matches where $1 = $2;
+select $1 from matches where $2 = $3;
