@@ -2,21 +2,23 @@ module.exports = {
 	//Give a matched ID when they're matched?
 	matched: async (req, res) => {
 		const db = req.app.get("db");
-		const { matched_id, liked_id, liker_id } = req.body;
+		const { decision, user_id } = req.body;
 
-		const [checkMatched] = await db.matches.matched(
-			matched_id,
-			liked_id,
-			liker_id
-		);
-		req.session.matched = checkMatched;
-		console.log(checkMatched);
+		//TODO - make a query using user_id, value returned will be
 
-		if (checkMatched) {
-			return res.status(200).send(req.session.matched);
-		} else {
-			return res.status(400).send("Users Not Matched");
-		}
+		//TODO - check if anything inside of user_one_id matches with my user_id
+
+		//TODO - check if anything inside of user_two_id matches with my user_id
+
+		// Check If our ID exists in either of the above rows - if it is then we need to update the value with the corrosponding row (ie user_one_decision / user_two_decision)
+
+		//! Realizing this has to be a put request
+
+		// We need a POST request prior to this PUT request because put is editing and post is creating it.
+
+		//* Possible Solution 1 - Every time someone either registers / logs in / runs out of users, you make a specific number of POST requests (batch) and then you get 15 new photos/users that you can swipe through.
+
+		//* Possible Solution 2 - When someone registers we handle a POST request that creates a new table for every single user that exists.
 	}
 	// //Give a liked_id when I've liked and they become my potential?
 	// liked_id: async (req, res) => {
