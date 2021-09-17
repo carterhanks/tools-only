@@ -1,1 +1,0 @@
-select $1 from matches where $2 = $3;

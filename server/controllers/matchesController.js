@@ -19,6 +19,21 @@ module.exports = {
 		//* Possible Solution 1 - Every time someone either registers / logs in / runs out of users, you make a specific number of POST requests (batch) and then you get 15 new photos/users that you can swipe through.
 
 		//* Possible Solution 2 - When someone registers we handle a POST request that creates a new table for every single user that exists.
+
+		// TODO - if statement - if both of the boolean values for user1 and user2 are true then create messages ID (match)
+	},
+
+	populatePeople: async (req, res) => {
+		const db = req.app.get("db");
+		const { user_id, match_counter } = req.body;
+
+		//TODO - matchCounter query will grab the first 15 people from the database(users)
+
+		//TODO - loop over the information (people), and for each person we will check if that person's ID and our ID (user_id) are on a 'matched' table (boolean)
+
+		//TODO - if statement - if they are both on a matched table do nothing - if there isn't a table with both ID's then create a table with both ID's on it
+
+		//TODO - return images and their ID from the user table for each individual image
 	}
 	// //Give a liked_id when I've liked and they become my potential?
 	// liked_id: async (req, res) => {

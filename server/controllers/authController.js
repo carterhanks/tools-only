@@ -1,3 +1,5 @@
+const { Checkbox } = require("@material-ui/core");
+
 module.exports = {
 	//Register
 	register: async (req, res) => {
@@ -36,6 +38,7 @@ module.exports = {
 		const [checkUser] = await db.signIn.check_user_exists(email); //check if user exists
 		const [checkPass] = await db.signIn.check_user_for_password(password);
 		const [checkBoth] = await db.signIn.check_user_for_both(email, password);
+		console.log(checkBoth, "This is what I am looking for.");
 
 		// I want to make if statements to handle our authentication
 		if ((checkUser, checkPass, checkBoth)) {
